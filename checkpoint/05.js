@@ -22,26 +22,28 @@ const { Stack } = require("../DS");
 
 function tipologiasSeparadas(arr) {
   // Tu código aquí:
-  //  Si el array esta vacio, no hay tipologias.
   if (arr.length === 0) return "Tipologias inexistentes";
-
-  //  Creo un stack para guardar las casas de forma correcta sin repetir tipologia.
   let stack = new Stack();
-
-  //  Recorro el array y voy ingresando cada elemento en el stack.
+  let repetidos = [];
   for (let i = 0; i < arr.length; i++) {
-    stack.push(arr[i]);
-    console.log("stack", stack);
-
-    // Si la cantidad de elementos del stack es par, significa que ya se ingresaron todas las casas sin repetir tipologia, por lo que terminamos con la funcion y retornamos el resultado final del Stack (que contiene todas las casas separadas).
-    if ((stack._size % 2) === 0) {
-      let resultadoFinal = [];
-
-      while (!stack._isEmpty()) {
-        let numero1 = parseInt(stack._pop()); 
+    if(i===0){
+      stack.push(arr[0]);
+    }else{
+      if(arr[i]===arr[i-1]){
+        repetidos.push(arr[i]);
       }
-    } return resultadoFinal;
-  } return stack;
+      else{
+        stack.push(arr[i]);
+      }
+    } 
+  } 
+  for (let j = 0; j < repetidos.length; j++) {
+    stack.push(repetidos[j]);
+  } 
+  if(repetidos.length===0){
+    return "No hay tipologias repetidas"
+  }
+  return stack;
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
