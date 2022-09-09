@@ -31,8 +31,19 @@ const { Queue } = require("../DS");
 
 function henryParty(arr) {
   // Tu código aquí:
+  let newQueue = new Queue();
 
-}
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].ticket == "VIP" && arr[i].estado == "Conocido") {
+      newQueue.enqueue(arr[i]);
+    }
+  }
+  if(newQueue.size() === 0){
+      return false;
+  }
+  return newQueue;
+};
+
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = {
