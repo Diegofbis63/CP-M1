@@ -23,7 +23,24 @@
 
 const calcularImpuestos = (factura, i = 0, acc = 0) => {
   // Tu código aquí:
+
+  if (factura.length === 0) {
+    return false;
+} else if (!Array.isArray(factura)) {
+    return "Error";
+} else if (i >= factura.length) {
+    return acc;
 }
+
+const producto = factura[i];
+
+    return calcularImpuestos(factura, i + 1, acc + producto);
+}
+
+
+
+
+
 
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
