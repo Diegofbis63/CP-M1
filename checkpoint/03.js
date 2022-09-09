@@ -34,7 +34,6 @@ function casasPorAño(n) {
   if (n === 1) {
     return 30;
   }
-
   return casasPorAño(n - 1) + casasPorAño(n/n)
 }
 
