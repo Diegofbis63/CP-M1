@@ -17,6 +17,7 @@
 // - casasPorAño(0) => 0
 // - casasPorAño(1) => 30
 // - casasPorAño(2) => 60
+// - casasPorAño(3) => 90
 //
 // REQUISITOS:
 // 🟢 La función debe obtener la cantidad de casas por año de forma recursiva.
@@ -25,7 +26,20 @@
 
 function casasPorAño(n) {
   // Tu código aquí:
+  
+  if (n < 0) {
+    return false;
+  }
+
+  if (n === 1) {
+    return 30;
+  }
+
+  return casasPorAño(n - 1) + casasPorAño(n/n)
 }
+
+ 
+
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = {
