@@ -27,7 +27,21 @@
 
 function construccionCasas(bolsas) {
   // Tu código aquí:
+  
+  return function(casas){
+    if(casas<=0){
+      return "Por favor ingresar cuantas casas quieres construir"
+    } else if(bolsas<10){
+      return "No se puede construir casas con esa cantidad de bolsas"
+    } else if((bolsas/10)<casas){
+      return "Solo puedes construir esta cantidad de casas: " + (bolsas/10)
+    } else if((bolsas/10)===casas){
+      return true;
+    }
+  }
 }
+
+
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = {
